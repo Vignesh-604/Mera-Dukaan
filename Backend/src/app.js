@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const express = require("express");
+import { connect } from "mongoose";
+import express from "express";
 const app = express();
-const Customer = require("./models/costumer.model");
+import Customer from "./models/costumer.model.js";
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/MeraDukaan";
 
@@ -14,18 +14,19 @@ main().then(() =>{
 
 
 async function main() {
-    await mongoose.connect(MONGO_URL);
+    await connect(MONGO_URL);
 };
 
-app.get("/testCustomer", async(req,res) =>{
-    let sampleCustomer = new Customer({
+app.post("/testCustomer", async(req,res) =>{
+    let sampleCustomer = await Customer.create({
         username : "hercules12",
         email : "hercules12@gmail.com",
         password : "123asdc",
     });
 
-    await sampleCustomer.save()
-    console.log("sample was saved");
+    console.log(sampleCustomer);
+
+    
     res.send("successful testing");
 })
 

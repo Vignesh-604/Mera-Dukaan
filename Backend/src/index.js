@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { connect } from "mongoose";
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/MeraDukaan";
+const MONGO_URL = "mongodb+srv://vig6604:vignesh123@cluster0.npb41as.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 main()
   .then(() => {
@@ -11,6 +11,6 @@ main()
   });
 
 async function main() {
-  await mongoose.connect(MONGO_URL);
+  await connect(MONGO_URL);
 
 }
