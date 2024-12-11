@@ -1,13 +1,12 @@
 {
     "rewrites": [
-      {
-        "source": "/api/:path*",
-        "destination": "@BACKEND_URL/api/:path*"
-      },
-      {
-        "source": "/(.*)",
-        "destination": "/"
-      }
+        {
+            "source": "/api/:path*",
+            "destination": "${process.env.BACKEND_URL}/api/$1"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/"
+        }
     ]
-  }
-  
+}
