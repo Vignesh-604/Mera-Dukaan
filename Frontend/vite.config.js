@@ -9,15 +9,8 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     server: {
-      // proxy: {
-      //   "/api": env.VITE_PROXY // Access env variable using `env` object
-      // }
       proxy: {
-        '/api': {
-          target: env.BACKEND_URL || 'http://localhost:3000/api',
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
-        },
+        "/api": env.VITE_PROXY // Access env variable using `env` object
       }
     }
   }
