@@ -2,7 +2,7 @@
     "rewrites": [
       {
         "source": "/api/:path*",
-        "destination": "https://mera-dukaan.onrender.com/api/:path*"
+        "destination": "@BACKEND_URL/api/:path*"
       },
       {
         "source": "/(.*)",
@@ -10,3 +10,4 @@
       }
     ]
   }
+  
